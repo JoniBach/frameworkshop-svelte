@@ -9,11 +9,16 @@
 
   function onInput(e: Event) {
     const v = (e.target as HTMLInputElement).value
-    dispatch('update:value', v)
+    // dispatch event matching the prop name to support bind:value
+    dispatch('value', v)
+  }
+
+  function onBlur() {
+    dispatch('blur')
   }
 
   function clear() {
-    dispatch('update:value', '')
+    dispatch('value', '')
   }
 </script>
 
@@ -26,6 +31,7 @@
       class="text-input__field"
       value={value}
       on:input={onInput}
+      on:blur={onBlur}
       placeholder={placeholder}
     />
     {#if showClear && value}
