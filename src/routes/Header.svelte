@@ -12,28 +12,28 @@
 		</a>
 	</div>
 
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
-				<a href={resolve('/')}>Home</a>
-			</li>
-			<li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href={resolve('/about')}>About</a>
-			</li>
-			<li aria-current={page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href={resolve('/sverdle')}>Sverdle</a>
-			</li>
-			<li aria-current={page.url.pathname === '/input-example' ? 'page' : undefined}>
-				<a href={resolve('/input-example')}>Input Example</a>
-			</li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
+	<div class="nav-groups">
+		<nav aria-label="Framework apps">
+			<ul>
+				<li><a href="http://localhost:3001/">Angular</a></li>
+				<li><a href="http://localhost:3002/">React</a></li>
+				<li><a href="http://localhost:3003/">Vue</a></li>
+				<li><a href="http://localhost:3004/">Svelte</a></li>
+				<li><a href="http://localhost:3005/">Solid</a></li>
+			</ul>
+		</nav>
+
+		<nav aria-label="User journey">
+			<ul>
+				<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
+					<a href={resolve('/')}>Home</a>
+				</li>
+				<li aria-current={page.url.pathname === '/input-example' ? 'page' : undefined}>
+					<a href={resolve('/input-example')}>Example</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
 
 	<div class="corner">
 		<a href="https://github.com/sveltejs/kit">
@@ -46,6 +46,11 @@
 	header {
 		display: flex;
 		justify-content: space-between;
+	}
+
+	.nav-groups {
+		display: grid;
+		gap: 0.5rem;
 	}
 
 	.corner {
@@ -71,16 +76,6 @@
 		display: flex;
 		justify-content: center;
 		--background: rgba(255, 255, 255, 0.7);
-	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
 	}
 
 	ul {
