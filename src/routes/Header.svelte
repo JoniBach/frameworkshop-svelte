@@ -31,6 +31,9 @@
 				<li aria-current={page.url.pathname === '/input-example' ? 'page' : undefined}>
 					<a href={resolve('/input-example')}>Example</a>
 				</li>
+				<li aria-current={page.url.pathname === '/auth/register' ? 'page' : undefined}>
+					<a href={resolve('/auth/register')}>Register</a>
+				</li>
 			</ul>
 		</nav>
 	</div>
